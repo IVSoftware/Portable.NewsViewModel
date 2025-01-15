@@ -146,7 +146,7 @@ ___
 
 **Why it Matters**
 
-Don't overlook the "bigger idea" of MVVM as being a decoupling of the UI from the logic. If this is done correctly, the `NewViewModel` is interchangeable, for example between Maiu and Wpf or Winforms.
+Don't overlook the "bigger idea" of MVVM as being a decoupling of the UI from the logic. If this is done correctly, the `NewViewModel` is interchangeable, for example between Maiu and Wpf or WinForms.
 
 
 [![WPF client][2]][2]
