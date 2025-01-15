@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Maui.NewsClient.MainPage"
              xmlns:local="clr-namespace:Maui.NewsClient">
-
     <ContentPage.BindingContext>
         <local:NewsViewModel/>
     </ContentPage.BindingContext>
@@ -16,19 +15,16 @@
                 HeightRequest="185"
                 Aspect="AspectFit"
                 SemanticProperties.Description="dot net bot in a race car number eight" />
-
             <Label
                 Text="Welcome to &#10;News Headlines"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
-
             <Button
                 Text="Refresh News" 
-                SemanticProperties.Hint="Counts the number of times you click"
+                SemanticProperties.Hint="Retrieves the latest news headlines"
                 Command="{Binding RefreshNewsCommand}"
-                HorizontalOptions="Fill" />
-            
+                HorizontalOptions="Fill" />            
             <CollectionView
                 ItemsSource="{Binding Headlines}"
                 BackgroundColor="Azure"
@@ -50,5 +46,4 @@
             </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

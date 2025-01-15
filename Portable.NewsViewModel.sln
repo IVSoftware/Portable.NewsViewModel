@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.NewsViewModel", "Portable.NewsViewModel\Portable.NewsViewModel.csproj", "{40D202C4-19F2-4F4E-95C2-226F27E2CD03}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.NewsClient", "Maui.NewsClient\Maui.NewsClient.csproj", "{9CF54312-6D9E-4CA0-A5CA-CCB334960A21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.NewsViewLogic", "Portable.NewsViewLogic\Portable.NewsViewLogic.csproj", "{FFF10D83-C341-498D-9CC1-A348D55454CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,16 +13,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{40D202C4-19F2-4F4E-95C2-226F27E2CD03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40D202C4-19F2-4F4E-95C2-226F27E2CD03}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40D202C4-19F2-4F4E-95C2-226F27E2CD03}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40D202C4-19F2-4F4E-95C2-226F27E2CD03}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9CF54312-6D9E-4CA0-A5CA-CCB334960A21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9CF54312-6D9E-4CA0-A5CA-CCB334960A21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CF54312-6D9E-4CA0-A5CA-CCB334960A21}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{9CF54312-6D9E-4CA0-A5CA-CCB334960A21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CF54312-6D9E-4CA0-A5CA-CCB334960A21}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9CF54312-6D9E-4CA0-A5CA-CCB334960A21}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FFF10D83-C341-498D-9CC1-A348D55454CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF10D83-C341-498D-9CC1-A348D55454CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF10D83-C341-498D-9CC1-A348D55454CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF10D83-C341-498D-9CC1-A348D55454CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

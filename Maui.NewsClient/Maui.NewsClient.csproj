@@ -64,7 +64,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Portable.NewsViewModel\Portable.NewsViewModel.csproj" />
+	  <ProjectReference Include="..\Portable.NewsViewLogic\Portable.NewsViewLogic.csproj" />
 	</ItemGroup>
 
 </Project>
