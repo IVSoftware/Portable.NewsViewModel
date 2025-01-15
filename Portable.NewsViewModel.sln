@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.NewsClient", "Maui.New
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.NewsViewLogic", "Portable.NewsViewLogic\Portable.NewsViewLogic.csproj", "{FFF10D83-C341-498D-9CC1-A348D55454CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.NewsClient", "Wpf.NewsClient\Wpf.NewsClient.csproj", "{68357912-1C70-4EAB-B410-3455DC0964FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{FFF10D83-C341-498D-9CC1-A348D55454CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFF10D83-C341-498D-9CC1-A348D55454CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFF10D83-C341-498D-9CC1-A348D55454CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68357912-1C70-4EAB-B410-3455DC0964FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68357912-1C70-4EAB-B410-3455DC0964FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68357912-1C70-4EAB-B410-3455DC0964FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68357912-1C70-4EAB-B410-3455DC0964FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

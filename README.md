@@ -16,10 +16,8 @@ As a minimal example of how this works, we can read some "news" from a web API..
 ~~~csharp
 public class NewsViewModel : INotifyPropertyChanged
 {
-    /// <summary>
-    /// The property itself should not change, and we make sure of that by making it 'get'
-    /// only. However, changes to this list will fire INotifyCollectionChanged events.
-    /// </summary>
+    // The property itself should not change, and we make sure of that by making it 'get'
+    // only. However, changes to this list will fire INotifyCollectionChanged events.
     public IList Headlines { get; } = new ObservableCollection<NewsHeadline>();
     // =============================================================================
 
