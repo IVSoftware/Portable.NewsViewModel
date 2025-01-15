@@ -1,12 +1,9 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Portable.NewsViewModel;
+using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using System.Text.Json.Nodes;
-using System.Text.Json.Serialization;
 using System.Windows.Input;
 
 namespace Maui.NewsClient
@@ -14,9 +11,20 @@ namespace Maui.NewsClient
     public partial class MainPage : ContentPage
     {
         public MainPage() => InitializeComponent();
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ((NewsViewModel)BindingContext).RefreshNewsCommand.Execute(this);
+        }
     }
     class NewsViewModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Should not change, and we make sure of that my making it get only.
+        /// Nevertheless, changes to this list will fire INotifyCollectionChanged events.
+        /// </summary>
+        public IList Headlines { get; } = new ObservableCollection<NewsHeadline>();
+
         static Random _rando = new Random(1);
         private static int RandomRequestSize => _rando.Next(2, 10);
         public NewsViewModel()
@@ -39,7 +47,7 @@ namespace Maui.NewsClient
                         string newsData = await response.Content.ReadAsStringAsync();
                         if (JsonConvert.DeserializeObject<NewsWrapper>(newsData) is { } news)
                         {
-                            _apiUrl = news.Next_Page_Url;
+                            _apiUrl = news.Next_Page_Url ?? $"https://catfact.ninja/facts?limit={RandomRequestSize}";
                             if (news.Data is List<NewsHeadline> headlines)
                             {
                                 Headlines.Clear();
@@ -61,11 +69,6 @@ namespace Maui.NewsClient
                 }
             }
         }
-        /// <summary>
-        /// Should not change, and we make sure of that my making it get only.
-        /// Nevertheless, changes to this list will fire INotifyCollectionChanged events.
-        /// </summary>
-        public ObservableCollection<NewsHeadline> Headlines { get; } = new ObservableCollection<NewsHeadline>();
         protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null) => 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
@@ -75,10 +78,7 @@ namespace Maui.NewsClient
     class NewsWrapper
     {
         public List<NewsHeadline>? Data { get; set; }
-        public int Current_Page { get; set; }
-        public int Last_Page { get; set; }
-
-        public string Next_Page_Url { get; set; }
+        public string? Next_Page_Url { get; set; }
     }
     class NewsHeadline
     {

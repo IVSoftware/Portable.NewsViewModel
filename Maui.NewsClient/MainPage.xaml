@@ -36,7 +36,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="10" Spacing="5" BackgroundColor="#f5f5f5">
-                            <Label Text="{Binding LocalTime, StringFormat='{0:MMMM dd, yyyy HH:mm}'}"
+                            <Label Text="{Binding LocalTime, StringFormat='{0:MMMM dd, yyyy HH:mm:ss}'}"
                                    FontAttributes="Italic"
                                    FontSize="14"
                                    TextColor="#888" />
