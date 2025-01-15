@@ -1,17 +1,18 @@
-Your code shows a method named `UpdateNewsView` and it would seem like a reasonable and fair assumption that your intent is to retrieve (conceptually) "the latest news" from "some news source" and display it in a "news view control". You said:
+Your code shows a method descriptively named `UpdateNewsView` and it would seem like a reasonable and fair assumption that your intent is to retrieve (conceptually) "the latest news" from "some news source" and display it in a "news view control". You said:
 
 > I thought cleaning the observableCollection and adding items was going to work, but I was wrong.
 
-OK, so you weren't completely wrong. You just have to:
+OK, so you weren't completely wrong. Try going about it this way:
 
 - Declare your ObservableCollection as a public property in the `BindingContext` (i.e. the ViewModel).
 - Leave it alone, and do not reassign it (because this would require a different kind of change notification).
 - Bind the `ItemsSource` property of your `CollectionView` (or other control) to that collection.
-- Then, _rely on the `INotifyCollectionChanged` events that are automatically generated when you modify the list_.
+- Then, _rely on the `INotifyCollectionChanged` events that are automatically generated when you modify the list_ as you clean and add items as shown in this snippet.
 
 ___
+**Minimal Example**
 
-As a minimal example of how this works, we can read some "news" from a web API..
+This ViewModel retrieves some "news" from a web API, showing one correct way to do the collection binding.
 
 ~~~csharp
 public class NewsViewModel : INotifyPropertyChanged
@@ -21,8 +22,6 @@ public class NewsViewModel : INotifyPropertyChanged
     public IList Headlines { get; } = new ObservableCollection<NewsHeadline>();
     // =============================================================================
 
-    static Random _rando = new Random(2);
-    private static int RandomRequestSize => _rando.Next(2, 5);
     public NewsViewModel()
     {
         RefreshNewsCommand = new Command(OnRefreshNews);
@@ -70,6 +69,8 @@ public class NewsViewModel : INotifyPropertyChanged
             }
         }
     }
+    static Random _rando = new Random(2);
+    private static int RandomRequestSize => _rando.Next(2, 5);
 
     // Although INotifyPropertyChanged is not utilized in this
     // example, we'll include it for the sake of inheritance.
@@ -80,9 +81,15 @@ public class NewsViewModel : INotifyPropertyChanged
 ~~~
 
 ___
+
 **XAML**
 
 Kludging a `CollectionView` onto the default MAUI app page gives us a way to display the results.
+
+
+[![MAUI client][1]][1]
+
+___
 
 ~~~xaml
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -135,3 +142,15 @@ Kludging a `CollectionView` onto the default MAUI app page gives us a way to dis
 </ContentPage>
 ~~~
 
+___
+
+**Why it Matters**
+
+Don't overlook the "bigger idea" of MVVM as being a decoupling of the UI from the logic. If this is done correctly, the `NewViewModel` is interchangeable, for example between Maiu and Wpf or Winforms.
+
+
+[![WPF client][2]][2]
+
+
+  [1]: https://i.sstatic.net/VzAHvoth.png
+  [2]: https://i.sstatic.net/nSBrTpJP.png
